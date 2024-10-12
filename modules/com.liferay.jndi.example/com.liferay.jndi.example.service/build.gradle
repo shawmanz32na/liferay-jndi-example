@@ -1,0 +1,12 @@
+dependencies {
+	api project(":modules:com.liferay.jndi.example:com.liferay.jndi.example.api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../com.liferay.jndi.example.api/src/main/java"
+	testDir = "../com.liferay.jndi.example.test/src/testIntegration/java"
+}
+
+group = "com.liferay.jndi.example"

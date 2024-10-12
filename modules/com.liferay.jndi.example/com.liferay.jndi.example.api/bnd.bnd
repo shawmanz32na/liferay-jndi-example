@@ -1,0 +1,10 @@
+Bundle-Name: Liferay Example External JNDI Database SB API
+Bundle-SymbolicName: com.liferay.jndi.example.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.jndi.example.exception,\
+	com.liferay.jndi.example.model,\
+	com.liferay.jndi.example.service,\
+	com.liferay.jndi.example.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../com.liferay.jndi.example.service/service.xml
