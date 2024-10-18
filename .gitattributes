@@ -1,0 +1,5 @@
+*.bat eol=crlf
+*.sh eol=lf
+gradlew eol=lf
+gradlew.bat eol=crlf
+gradle/wrapper/gradle-wrapper.jar binary
