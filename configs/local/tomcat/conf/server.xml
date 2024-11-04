@@ -45,16 +45,23 @@
               pathname="conf/tomcat-users.xml" />
 
     <!-- Define a JNDI datasource for HikariCP as the connection pool and
-         HSQL as the database. This should not be used in production, it is
+         PostgreSQL as the database. This is not intended for use in production, it is
          just an example for setting up JNDI.
 
          Note there is also an edit in context.xml that goes along with this. -->
-    <Resource name="jdbc/extdb" auth="Container" type="javax.sql.DataSource"
-      factory="com.zaxxer.hikari.HikariJNDIFactory" minimumIdle="2" maximumPoolSize="5"
-      connectionTimeout="300000"
-      driverClassName="org.hsqldb.jdbcDriver"
-      jdbcUrl="jdbc:hsqldb:file:extdb;shutdown=true" dataSource.user="sa" dataSource.password="" 
-      dataSource.implicitCachingEnabled="true" />
+    <Resource name="jdbc/extdb"
+              auth="Container"
+              type="javax.sql.DataSource"
+              factory="com.zaxxer.hikari.HikariJNDIFactory"
+              minimumIdle="2"
+              maximumPoolSize="5"
+              poolName="extdb-postgres"
+              registerMbeans="true"
+              connectionTimeout="300000"
+              driverClassName="org.postgresql.Driver"
+              jdbcUrl="jdbc:postgresql://db:5432/extdb"
+              dataSource.user="postgres"
+              dataSource.password="muchsecureverywow" />
 
   </GlobalNamingResources>
 
