@@ -1,8 +1,12 @@
 # Liferay JNDI Example
 
-This repository shows how to use an external JNDI datasource in Liferay 7.4 GA125.
+This repository shows how to use an external JNDI datasource in Liferay 7.1.3 GA4.
+
+The workspace was initialized using `blade init -v portal-7.1-ga4` and then slightly modified to configure a JNDI Resource for PostgreSQL database connections. The provided `com.liferay.jndi.example` modules were generated using `blade create -t service-builder -p com.liferay.jndi.example com.liferay.jndi.example` and then `blade gw buildService`.
 
 It is completely self-contained.
+
+_NOTE: The example Service Builder modules do not currently compile, although they are purely Liferay-generated code in a default Liferay Workspace._
 
 ## Steps to Build
 
