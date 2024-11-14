@@ -1,3 +1,6 @@
 dependencies {
 	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+
+	// Use Bnd to support use of aQute.bnd.annotation.ProviderType annotation in generated code
+	compileOnly group: "biz.aQute.bnd", name: "biz.aQute.bndlib", version: "3.1.0"
 }
