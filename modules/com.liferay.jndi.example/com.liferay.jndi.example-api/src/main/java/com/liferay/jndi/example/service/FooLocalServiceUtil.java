@@ -49,6 +49,17 @@ public class FooLocalServiceUtil {
 		return getService().addFoo(foo);
 	}
 
+	public static Foo addFoo(
+			long userId, long groupId, String field1, boolean field2,
+			int field3, java.util.Date field4, String field5,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().addFoo(
+			userId, groupId, field1, field2, field3, field4, field5,
+			serviceContext);
+	}
+
 	/**
 	 * Creates a new foo with the primary key. Does not add the foo to the database.
 	 *

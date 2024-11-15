@@ -3,3 +3,9 @@ Bundle-SymbolicName: com.liferay.jndi.example.service
 Bundle-Version: 1.0.0
 Liferay-Require-SchemaVersion: 1.0.0
 Liferay-Service: true
+
+# https://help.liferay.com/hc/en-us/articles/360017886812-Connecting-Service-Builder-to-External-Databases#step-3-specify-the-data-source says nothing about updating Gradle or Bnd dependencies, but "Cannot find class org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy for bean with name 'liferayDataSource'" errors on deployment and https://liferay.atlassian.net/browse/LPSA-53747 indicate these are necessary
+Import-Package:\
+    com.liferay.portal.dao.jdbc.spring,\
+    org.springframework.jdbc.datasource,\
+    *

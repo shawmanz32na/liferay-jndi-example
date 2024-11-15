@@ -5,6 +5,11 @@
 
 package com.liferay.jndi.example.service;
 
+import com.liferay.jndi.example.model.Foo;
+import com.liferay.portal.kernel.exception.PortalException;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for Foo. This utility wraps
  * <code>com.liferay.jndi.example.service.impl.FooServiceImpl</code> and is an
@@ -24,13 +29,30 @@ public class FooServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.liferay.jndi.example.service.impl.FooServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static Foo addFoo(
+			long groupId, String field1, boolean field2, int field3,
+			java.util.Date field4, String field5,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().addFoo(
+			groupId, field1, field2, field3, field4, field5, serviceContext);
+	}
+
+	public static Foo getFoo(long id) throws PortalException {
+		return getService().getFoo(id);
+	}
+
+	public static List<Foo> getFoos() throws PortalException {
+		return getService().getFoos();
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
 	}
 

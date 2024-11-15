@@ -38,6 +38,18 @@ public class FooLocalServiceWrapper
 		return _fooLocalService.addFoo(foo);
 	}
 
+	@Override
+	public com.liferay.jndi.example.model.Foo addFoo(
+			long userId, long groupId, String field1, boolean field2,
+			int field3, java.util.Date field4, String field5,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _fooLocalService.addFoo(
+			userId, groupId, field1, field2, field3, field4, field5,
+			serviceContext);
+	}
+
 	/**
 	 * Creates a new foo with the primary key. Does not add the foo to the database.
 	 *

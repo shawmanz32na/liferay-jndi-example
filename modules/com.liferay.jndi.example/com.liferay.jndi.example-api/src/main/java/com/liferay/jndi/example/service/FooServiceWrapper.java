@@ -21,6 +21,31 @@ public class FooServiceWrapper
 		_fooService = fooService;
 	}
 
+	@Override
+	public com.liferay.jndi.example.model.Foo addFoo(
+			long groupId, String field1, boolean field2, int field3,
+			java.util.Date field4, String field5,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _fooService.addFoo(
+			groupId, field1, field2, field3, field4, field5, serviceContext);
+	}
+
+	@Override
+	public com.liferay.jndi.example.model.Foo getFoo(long id)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _fooService.getFoo(id);
+	}
+
+	@Override
+	public java.util.List<com.liferay.jndi.example.model.Foo> getFoos()
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _fooService.getFoos();
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

@@ -5,9 +5,15 @@
 
 package com.liferay.jndi.example.service.http;
 
+import com.liferay.jndi.example.service.FooServiceUtil;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.liferay.jndi.example.service.FooServiceUtil</code> service
+ * <code>FooServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -45,4 +51,63 @@ package com.liferay.jndi.example.service.http;
  * @generated
  */
 public class FooServiceSoap {
+
+	public static com.liferay.jndi.example.model.FooSoap getFoo(long id)
+		throws RemoteException {
+
+		try {
+			com.liferay.jndi.example.model.Foo returnValue =
+				FooServiceUtil.getFoo(id);
+
+			return com.liferay.jndi.example.model.FooSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.liferay.jndi.example.model.FooSoap[] getFoos()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.liferay.jndi.example.model.Foo> returnValue =
+				FooServiceUtil.getFoos();
+
+			return com.liferay.jndi.example.model.FooSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.liferay.jndi.example.model.FooSoap addFoo(
+			long groupId, String field1, boolean field2, int field3,
+			java.util.Date field4, String field5,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.liferay.jndi.example.model.Foo returnValue =
+				FooServiceUtil.addFoo(
+					groupId, field1, field2, field3, field4, field5,
+					serviceContext);
+
+			return com.liferay.jndi.example.model.FooSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(FooServiceSoap.class);
+
 }

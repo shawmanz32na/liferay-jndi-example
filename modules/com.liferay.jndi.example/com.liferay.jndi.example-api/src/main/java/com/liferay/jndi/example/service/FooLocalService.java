@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -28,6 +29,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.io.Serializable;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -66,6 +68,12 @@ public interface FooLocalService
 	 */
 	@Indexable(type = IndexableType.REINDEX)
 	public Foo addFoo(Foo foo);
+
+	public Foo addFoo(
+			long userId, long groupId, String field1, boolean field2,
+			int field3, Date field4, String field5,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * Creates a new foo with the primary key. Does not add the foo to the database.
